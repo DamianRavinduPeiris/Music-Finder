@@ -1,0 +1,48 @@
+
+.heading{
+    display: inline-block;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 5rem;
+    font-weight: bold;
+    margin-top: 3rem;
+
+
+}
+.highlight {
+    background-image: linear-gradient(to right, #F27121cc, #E94057cc, #8A2387cc);
+    border-radius: 6px;
+    padding: 3px 6px;
+}
+#nameField{
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80vw;
+    font-weight: bold;
+    margin-top: 10rem;
+}
+.albumCover{
+    height: auto;
+    width: auto;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+.albumCover>h1{
+    font-family: "Roboto Condensed", sans-serif;
+    font-size: 5rem;
+    font-weight: bold;
+}
+#albumImage{
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1000px;
+    height: 1000px;
+    margin-left: 5rem;
+    margin-right: 5rem;
+
+}
