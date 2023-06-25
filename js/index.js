@@ -15,7 +15,7 @@ async function fetchSongID(songName) {
     let musicData = await jsonData;
     $("body").append("<div class='albumDetails' ></div>")
     $(".albumDetails").append("<h1 data-aos='zoom-in' >" + musicData.response.hits[0].result.full_title + ".</h1>")
-    $(".albumDetails").append("<h1 data-aos='zoom-in' >"+ "Released on :" + musicData.response.hits[0].result.release_date_for_display + ".</h1>")
+    $(".albumDetails").append("<h1 data-aos='zoom-in' >" + "Released on :" + musicData.response.hits[0].result.release_date_for_display + ".</h1>")
     var albumCover = musicData.response.hits[0].result.header_image_url;
     var sId = musicData.response.hits[0].result.id;
     fetchLyrics(sId);
@@ -42,12 +42,19 @@ async function fetchLyrics(songId) {
     /*Getting lyrics from the API.*/
     const result = lyricData.response.song.embed_content;
     /*Embedding the lyrics in the iframe.*/
-    $("body").append("<div data-aos='zoom-in' class='albumDetails'  ><iframe id='song' style='font-size: 5rem'></iframe></div>")
+    $("body").append("<div data-aos='zoom-in' class='albumDetails'  ><iframe id='song' ></iframe></div>")
     let ifrm = document.getElementById("song");
     try {
         let ifrWin = ifrm.contentWindow || ifrm.contentDocument.defaultView;
         ifrWin.document.write(result);
         ifrWin.document.close();
+        let youtubeLink = lyricData.response.song.media[0].url;
+        console.log(youtubeLink);
+        const videoId = youtubeLink.split("v=")[1];
+        console.log(videoId);
+        $("body").append(`<div class='albumDetails'><iframe id="ytVideo" width='500' height='300' src='https://www.youtube.com/embed/${videoId}' title='YouTube video player.' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' allowfullscreen></iframe></div>`)
+
+
     } catch (e) {
         console.log(e.message);
     }
