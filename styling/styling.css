@@ -69,11 +69,12 @@
     height: 100vh;
 }
 
-#ytVideo {
+.media{
     /*This is aligned centered coz, this is the first child in the yt flex container.*/
     margin-top: 5rem;
     margin-bottom: 5rem;
     align-self: center;
+    width: 80vw;
 
 }
 

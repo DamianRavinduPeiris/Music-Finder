@@ -49,10 +49,17 @@ async function fetchLyrics(songId) {
         ifrWin.document.write(result);
         ifrWin.document.close();
         let youtubeLink = lyricData.response.song.media[0].url;
+        let spotifyLink = lyricData.response.song.media[1].url;
         console.log(youtubeLink);
-        const videoId = youtubeLink.split("v=")[1];
-        console.log(videoId);
-        $("body").append(`<div class='albumDetails'><iframe id="ytVideo" width='500' height='300' src='https://www.youtube.com/embed/${videoId}' title='YouTube video player.' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' allowfullscreen></iframe></div>`)
+        const ytId = youtubeLink.split("v=")[1];
+        const sID = spotifyLink.split("/");
+        console.log(sID);
+        console.log(sID[sID.length - 1]);
+        /*Spotify.*/
+        $("body").append(`<div data-aos='zoom-in' class='albumDetails'><iframe class="media" style="border-radius:12px" src="https://open.spotify.com/embed/track/${sID[sID.length - 1]}?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></div>`)
+        /*Youtube.*/
+        $("body").append(`<div data-aos='zoom-in' class='albumDetails'><iframe class="media" width='500' height='500' src='https://www.youtube.com/embed/${ytId}' title='YouTube video player.' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' allowfullscreen></iframe></div>`)
+
 
 
     } catch (e) {
