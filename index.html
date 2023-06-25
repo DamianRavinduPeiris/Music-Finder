@@ -28,7 +28,15 @@
     <script crossorigin="anonymous" integrity="sha256-tG5mcZUtJsZvyKAxYLVXrmjKBVLd6VpVccqz/r4ypFE="
             src="https://code.jquery.com/jquery-3.7.0.slim.min.js"></script>
     <!--Google Fonts.-->
-    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css2?family=Belanosima:wght@700&display=swap" rel="stylesheet">
     <!--Custom CSS.-->
     <link href="styling/styling.css" rel="stylesheet">
     <!--Normalize CSS.-->
@@ -36,13 +44,16 @@
 </head>
 <body>
 
-<div class="mainCard">
-<h1 class="heading highlight animate__animated animate__zoomInUp">Lyric Finder.</h1>
-<div class="mb-3" >
-    <input type="text" class="form-control animate__animated animate__zoomInUp" id="nameField" placeholder="Enter a song name!">
-</div>
-<div class="albumCover"></div>
-</div>
+    <h1 class="heading highlight animate__animated animate__zoomInUp">Lyric Finder.</h1>
+    <h1 class="intro animate__animated animate__zoomInUp">Your Ultimate Lyric Companion!</h1>
+    <div class="mb-3">
+        <input class="form-control animate__animated animate__zoomInUp" id="nameField"
+               placeholder="Enter a song name and artist name for more accurate results!"
+               type="text">
+    </div>
+    <div class="albumCover"></div>
+    <div class="lyricsContainer">
+    </div>
 
 
 
@@ -56,5 +67,6 @@
 </script>
 <!--Custom JS.-->
 <script src="js/index.js"></script>
+
 </body>
 </html>
