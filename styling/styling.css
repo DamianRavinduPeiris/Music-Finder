@@ -35,18 +35,20 @@
     margin-top: 10rem;
 }
 
-.albumCover {
+.albumDetails {
     height: auto;
     width: auto;
     display: flex;
     justify-content: center;
     align-content: center;
+    flex-direction: column;
 }
 
-.albumCover > h1 {
+.albumDetails > h1 {
+    color: darkslategrey;
     text-align: center;
     font-family: 'Belanosima', sans-serif;
-    font-size: 4rem;
+    font-size: 2rem;
     font-weight: bold;
 }
 
@@ -58,9 +60,11 @@
     height: 500px;
 
 }
-.lyricsContainer{
-    display: flex;
-    justify-content: center;
-    align-content: center;
+#song{
+    margin-top: 3rem;
+    border: 10px solid darkslategrey;
+    margin-right: 5rem;
+    margin-left: 5rem;
+    height: 100vh;
 }
 
