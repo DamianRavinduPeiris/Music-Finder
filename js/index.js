@@ -1,6 +1,6 @@
 $("#nameField").on("keydown", (event) => {
     if (event.key === "Enter") {
-        $(".myFooter").css("display", "none");
+        $(".myForm").css("display", "none");
         fetchSongID($("#nameField").val());
 
 
@@ -53,7 +53,7 @@ async function fetchLyrics(songId) {
     $("body").append("<div data-aos='zoom-in' class='albumDetails'  ><iframe id='song' ></iframe></div>")
     let ifrm = document.getElementById("song");
     try {
-        $(document).ready(()=>{
+        $(document).ready(() => {
             let ifrWin = ifrm.contentWindow || ifrm.contentDocument.defaultView;
             ifrWin.document.write(result);
             ifrWin.document.close();
@@ -65,13 +65,12 @@ async function fetchLyrics(songId) {
         const sID = spotifyLink.split("/");
         console.log(sID);
         console.log(sID[sID.length - 1]);
-        $(document).ready(()=>{
+        $(document).ready(() => {
             /*Spotify.*/
             $("body").append(`<div data-aos='zoom-in' class='albumDetails'><iframe class="media" style="border-radius:12px" src="https://open.spotify.com/embed/track/${sID[sID.length - 1]}?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></div>`)
             /*Youtube.*/
             $("body").append(`<div data-aos='zoom-in' class='albumDetails'><iframe class="media" width='500' height='500' src='https://www.youtube.com/embed/${ytId}' title='YouTube video player.' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' allowfullscreen></iframe></div>`)
         });
-
 
 
     } catch (e) {
