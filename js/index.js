@@ -1,5 +1,6 @@
 $("#nameField").on("keydown", (event) => {
     if (event.key === "Enter") {
+        $(".myFooter").css("display", "none");
         fetchSongID($("#nameField").val());
 
 
@@ -14,15 +15,21 @@ async function fetchSongID(songName) {
     let jsonData = response.json();
     let musicData = await jsonData;
     $("body").append("<div class='albumDetails' ></div>")
-    $(".albumDetails").append("<h1 data-aos='zoom-in' >" + musicData.response.hits[0].result.full_title + ".</h1>")
-    $(".albumDetails").append("<h1 data-aos='zoom-in' >" + "Released on :" + musicData.response.hits[0].result.release_date_for_display + ".</h1>")
+    $(document).ready(() => {
+        $(".albumDetails").append("<h1 data-aox='zoom-in'>Album Details.</h1>")
+        $(".albumDetails").append("<img  data-aos='fade-up' id='albumImage' src=" + albumCover + ">");
+        $(".albumDetails").append("<h1 data-aos='zoom-in' >" + musicData.response.hits[0].result.full_title + ".</h1>")
+        $(".albumDetails").append("<h1 data-aos='zoom-in' >" + "Released on :" + musicData.response.hits[0].result.release_date_for_display + ".</h1>")
+    });
+
     var albumCover = musicData.response.hits[0].result.header_image_url;
     var sId = musicData.response.hits[0].result.id;
     fetchLyrics(sId);
-    $(".albumDetails").append("<img  data-aos='fade-up' id='albumImage' src=" + albumCover + ">");
+    $(document).ready(() => {
+        /*Get the current scroll position and scroll 500px.*/
+        $(window).scrollTop($(window).scrollTop() + 500);
+    });
 
-    /*Do not scroll horizontally (Indicates by 0 , Scroll to the vertical position. )*/
-    window.scrollTo(0, document.body.scrollHeight);
 
 }
 
@@ -30,8 +37,9 @@ if (window.innerWidth < 878) {
     $(".heading").css("font-size", "3rem");
     $("#nameField").attr("placeholder", "Enter Song Name!");
     $(".albumDetails>h1").css("font-size", "1rem");
-    $(".albumDetails>image").css("width", "80vw");
+    $("#albumImage").css("width", "80vw");
     $(".intro").css("font-size", "2rem");
+    $("#footerText").css("font-size", "1rem");
 
 }
 
@@ -45,9 +53,11 @@ async function fetchLyrics(songId) {
     $("body").append("<div data-aos='zoom-in' class='albumDetails'  ><iframe id='song' ></iframe></div>")
     let ifrm = document.getElementById("song");
     try {
-        let ifrWin = ifrm.contentWindow || ifrm.contentDocument.defaultView;
-        ifrWin.document.write(result);
-        ifrWin.document.close();
+        $(document).ready(()=>{
+            let ifrWin = ifrm.contentWindow || ifrm.contentDocument.defaultView;
+            ifrWin.document.write(result);
+            ifrWin.document.close();
+        });
         let youtubeLink = lyricData.response.song.media[0].url;
         let spotifyLink = lyricData.response.song.media[1].url;
         console.log(youtubeLink);
@@ -55,10 +65,12 @@ async function fetchLyrics(songId) {
         const sID = spotifyLink.split("/");
         console.log(sID);
         console.log(sID[sID.length - 1]);
-        /*Spotify.*/
-        $("body").append(`<div data-aos='zoom-in' class='albumDetails'><iframe class="media" style="border-radius:12px" src="https://open.spotify.com/embed/track/${sID[sID.length - 1]}?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></div>`)
-        /*Youtube.*/
-        $("body").append(`<div data-aos='zoom-in' class='albumDetails'><iframe class="media" width='500' height='500' src='https://www.youtube.com/embed/${ytId}' title='YouTube video player.' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' allowfullscreen></iframe></div>`)
+        $(document).ready(()=>{
+            /*Spotify.*/
+            $("body").append(`<div data-aos='zoom-in' class='albumDetails'><iframe class="media" style="border-radius:12px" src="https://open.spotify.com/embed/track/${sID[sID.length - 1]}?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></div>`)
+            /*Youtube.*/
+            $("body").append(`<div data-aos='zoom-in' class='albumDetails'><iframe class="media" width='500' height='500' src='https://www.youtube.com/embed/${ytId}' title='YouTube video player.' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' allowfullscreen></iframe></div>`)
+        });
 
 
 
