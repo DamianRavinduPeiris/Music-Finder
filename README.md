@@ -4,19 +4,22 @@
 
   ### 🚀 Now live at 👉  <a href="https://music-finder-by-damian.pages.dev./" target=_blank>`https://music-finder-by-damian.pages.dev./`</a>
 
-![image](https://github.com/DamianRavinduPeiris/Music-Finder/assets/115478137/c710e723-5d22-471c-b375-e852c6ea934f)
+  
+![image](https://github.com/DamianRavinduPeiris/Music-Finder/assets/115478137/71ae8a15-3df7-404f-a09b-956eb55820a1)
+
+![image](https://github.com/DamianRavinduPeiris/Music-Finder/assets/115478137/21ccf3a9-56df-4872-9b88-4aa6b3dc802a)
+
+![image](https://github.com/DamianRavinduPeiris/Music-Finder/assets/115478137/6570c539-b2ab-42b8-98ba-63a5007205cc)
 
 
-![image](https://github.com/DamianRavinduPeiris/Music-Finder/assets/115478137/c4bdeb03-1688-4078-8555-ffc781909834)
+![image](https://github.com/DamianRavinduPeiris/Music-Finder/assets/115478137/298e66bf-1ec0-418b-86e5-efe3b2a19c08)
 
 
-![image](https://github.com/DamianRavinduPeiris/Music-Finder/assets/115478137/20057291-32af-4a13-b9d5-9b7d08a0f255)
+![image](https://github.com/DamianRavinduPeiris/Music-Finder/assets/115478137/6508e6ba-f9cc-4820-b24c-94c3de4c2034)
 
 
-![image](https://github.com/DamianRavinduPeiris/Music-Finder/assets/115478137/f9319710-3a13-4c02-a029-627318ec9ec8)
 
 
-![image](https://github.com/DamianRavinduPeiris/Music-Finder/assets/115478137/fc79e69f-2ef3-4e68-9764-d2c56e476345)
 
 
 
