@@ -1,6 +1,6 @@
 $("#nameField").on("keydown", (event) => {
     if (event.key === "Enter") {
-        $(".myForm").css("display", "none");
+        $(".myFooter").css("display", "none");
         fetchSongID($("#nameField").val());
 
 
