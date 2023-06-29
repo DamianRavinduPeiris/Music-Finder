@@ -9,14 +9,15 @@ $("#nameField").on("keydown", (event) => {
 
 async function fetchSongID(songName) {
     $(".albumDetails").remove();
+    $(".mediaContainer").remove();
     $("#nameField").val("");
     $("#nameField").blur();
     let response = await fetch("https://api.genius.com/search?access_token=H4jUebTWrLHmEM_g0L1gfBu3ZUgDpamrZAuwy9xvBWfNysQ5yBJ5CdCGUrgrXEa3&q=" + songName)
     let jsonData = response.json();
     let musicData = await jsonData;
-    $("body").append("<div class='albumDetails' ></div>")
+    $("body").append("<div class='albumDetails' data-aos='zoom-in'></div>")
     $(document).ready(() => {
-        $(".albumDetails").append("<h1 data-aox='zoom-in'>Album Details.</h1>")
+        $(".albumDetails").append("<h1 data-aox='zoom-in' id='underline'>Album Details.</h1>")
         $(".albumDetails").append("<img  data-aos='fade-up' id='albumImage' src=" + albumCover + ">");
         $(".albumDetails").append("<h1 data-aos='zoom-in' >" + musicData.response.hits[0].result.full_title + ".</h1>")
         $(".albumDetails").append("<h1 data-aos='zoom-in' >" + "Released on :" + musicData.response.hits[0].result.release_date_for_display + ".</h1>")
@@ -50,7 +51,7 @@ async function fetchLyrics(songId) {
     /*Getting lyrics from the API.*/
     const result = lyricData.response.song.embed_content;
     /*Embedding the lyrics in the iframe.*/
-    $("body").append("<div data-aos='zoom-in' class='albumDetails'  ><iframe id='song' ></iframe></div>")
+    $("body").append("<div data-aos='zoom-in' class='mediaContainer'  ><iframe id='song' ></iframe></div>")
     let ifrm = document.getElementById("song");
     try {
         $(document).ready(() => {
@@ -67,9 +68,10 @@ async function fetchLyrics(songId) {
         console.log(sID[sID.length - 1]);
         $(document).ready(() => {
             /*Spotify.*/
-            $("body").append(`<div data-aos='zoom-in' class='albumDetails'><iframe class="media" style="border-radius:12px" src="https://open.spotify.com/embed/track/${sID[sID.length - 1]}?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></div>`)
+            $("body").append(`<div data-aos='zoom-in' class='mediaContainer'><iframe class="media" style="border-radius:12px" src="https://open.spotify.com/embed/track/${sID[sID.length - 1]}?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></div>`)
             /*Youtube.*/
-            $("body").append(`<div data-aos='zoom-in' class='albumDetails'><iframe class="media" width='500' height='500' src='https://www.youtube.com/embed/${ytId}' title='YouTube video player.' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' allowfullscreen></iframe></div>`)
+            $("body").append(`<div data-aos='zoom-in' class='mediaContainer'><iframe class="media" width='500' height='500' src='https://www.youtube.com/embed/${ytId}' title='YouTube video player.' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' allowfullscreen></iframe></div>`)
+            $(".albumDetails").append("<p data-aos='zoom-in'>"+"Description : "+lyricData.response.song.description.plain+"</p>")
         });
 
 
